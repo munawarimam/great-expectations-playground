@@ -1,0 +1,63 @@
+fluent_datasources:
+  my_pandas:
+    type: pandas
+    assets:
+      local_df:
+        type: dataframe
+        batch_metadata: {}
+config_version: 3.0
+datasources: {}
+expectations_store_name: expectations_store
+validations_store_name: validations_store
+evaluation_parameter_store_name: evaluation_parameter_store
+checkpoint_store_name: checkpoint_store
+profiler_store_name: profiler_store
+plugins_directory:
+stores:
+  expectations_store:
+    class_name: ExpectationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: expectations/
+      root_directory: /Users/imammunawar/MyWorkspace/Bvarta/bvt-service-images-example/great_expectations/gx
+  validations_store:
+    class_name: ValidationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/validations/
+      root_directory: /Users/imammunawar/MyWorkspace/Bvarta/bvt-service-images-example/great_expectations/gx
+  evaluation_parameter_store:
+    class_name: EvaluationParameterStore
+  checkpoint_store:
+    class_name: CheckpointStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      suppress_store_backend_id: true
+      base_directory: checkpoints/
+      root_directory: /Users/imammunawar/MyWorkspace/Bvarta/bvt-service-images-example/great_expectations/gx
+  profiler_store:
+    class_name: ProfilerStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      suppress_store_backend_id: true
+      base_directory: profilers/
+      root_directory: /Users/imammunawar/MyWorkspace/Bvarta/bvt-service-images-example/great_expectations/gx
+notebooks:
+data_docs_sites:
+  local_site:
+    class_name: SiteBuilder
+    show_how_to_buttons: true
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/data_docs/local_site/
+      root_directory: /Users/imammunawar/MyWorkspace/Bvarta/bvt-service-images-example/great_expectations/gx
+    site_index_builder:
+      class_name: DefaultSiteIndexBuilder
+config_variables_file_path:
+anonymous_usage_statistics:
+  data_context_id: 2d380f24-80a8-4b9d-960b-f49363165a1b
+  enabled: true
+include_rendered_content:
+  globally: false
+  expectation_suite: false
+  expectation_validation_result: false

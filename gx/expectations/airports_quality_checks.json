@@ -1,0 +1,30 @@
+{
+    "expectation_suite_name": "airports_quality_checks",
+    "meta": {
+      "great_expectations_version": "0.18.19"
+    },
+    "expectations": [
+      {
+        "expectation_type": "expect_table_columns_to_match_set",
+        "kwargs": {
+          "column_set": ["name", "city", "state", "country", "latitude", "longitude"],
+          "exact_match": false
+        }
+      },
+      {
+        "expectation_type": "expect_column_value_lengths_to_be_between",
+        "kwargs": {
+          "column": "name",
+          "min_value": null,
+          "max_value": 255
+        }
+      },
+      {
+        "expectation_type": "expect_columns_to_be_different",
+        "kwargs": {
+            "column_A": "longitude",
+            "column_B": "latitude"
+        }
+      }
+    ]
+  }
